@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  /* Style for the login section */
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+
+  .header {
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    position: relative;
+  }
+
+  .header-title {
+    font-size: 28px;
+    color: rgb(5, 2, 2);
+    margin-bottom: 5px;
+  }
+
+  .header-separator {
+    width: 100%;
+    height: 5px;
+    background-color: #080707;
+    position: absolute;
+    top: 80px;
+    left: 0;
+  }
+
+  .auth-container {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+    margin-top: -140px; /* Diubah dari 30px */
+  }
+
+  /* Style for the background image */
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: url('https://wallpaperaccess.com/full/5098212.png') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  /* Style for the Tekan Ketuk button */
+  .tekan-ketuk-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 16px;
+    width: 60%;
+  }
+
+  .tekan-ketuk-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+  }
+
+  /* Styles for the new page */
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(223, 218, 218, 0.3);
+    text-align: center;
+    margin-top: -140px;
+  }
+
+  .message {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .link-button {
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: background-color 0.5s;
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 16px;
+    width: 40%;
+  }
+
+  .link-button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Styles for the loading overlay */
+  .loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loading-text {
+    color: white;
+    font-size: 24px;
+  }
+</style>
+<title>ZottieChan</title>
+</head>
+<body>
+  <!-- Header Section -->
+  <div class="header">
+    <div class="header-title">Welcome To ZottieChan:3</div>
+    <div class="header-separator"></div>
+  </div>
+
+  <!-- Tekan Ketuk Section -->
+  <div class="container" id="authContainer">
+    <div class="auth-container">
+      <h2>Tekan Tombol Masuk DiBawah!</h2>
+      <button class="tekan-ketuk-button" onclick="showNewPage()">masuk</button>
+    </div>
+  </div>
+
+  <!-- New Page Section -->
+  <div class="container" id="newPage">
+    <div class="content">
+      <p class="message">Tunggu Ya Lagi DiPerbaiki.</p>
+      <a href="index.html" class="link-button" onclick="showLoginPage()">Kembali</a>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay">
+    <div class="loading-text">Loading...</div>
+  </div>
+
+  <script>
+    function showLoading() {
+      document.querySelector('.loading-overlay').style.display = 'flex';
+    }
+
+    function hideLoading() {
+      document.querySelector('.loading-overlay').style.display = 'none';
+    }
+
+    function showNewPage() {
+      var authContainer = document.getElementById('authContainer');
+      showLoading();
+      setTimeout(function() {
+        authContainer.style.display = 'none';
+        var newPage = document.getElementById('newPage');
+        newPage.style.display = 'flex';
+        hideLoading();
+      }, 3000); // Simulasi loading selama 2 detik
+    }
+
+    function showLoginPage() {
+      var authContainer = document.getElementById('authContainer');
+      showLoading();
+      setTimeout(function() {
+        authContainer.style.display = 'flex';
+        var newPage = document.getElementById('newPage');
+        newPage.style.display = 'none';
+        hideLoading();
+      }, 3000); // Simulasi loading selama 2 detik
+    }
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desktop Only Page</title>
+    <style>
+        /* Ganti display:none saat diakses melalui perangkat seluler */
+        .desktop-only {
+            display: block; /* Tampilkan di desktop */
+        }
+
+        @media (max-width: 768px) {
+            .desktop-only {
+                display: none; /* Sembunyikan di perangkat seluler */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Selamat datang di halaman hanya untuk dekstop!</h1>
+    <p class="desktop-only">Ini adalah konten yang hanya akan ditampilkan di komputer atau dekstop.</p>
+    <p>Ini adalah konten yang akan ditampilkan di semua perangkat.</p>
+</body>
+</html>
